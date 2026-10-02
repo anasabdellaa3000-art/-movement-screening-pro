@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#0b63ce">
+<title>Movement Screening Pro</title>
+<style>
+:root{--blue:#0b63ce;--green:#10b981;--orange:#f59e0b;--red:#ef4444;--bg:#f4f7fb;--ink:#172033;--muted:#667085}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif}
+.top{background:linear-gradient(135deg,#0756b6,#1381e8);color:#fff;padding:22px 16px 16px;position:sticky;top:0;z-index:20}.top h1{margin:0;font-size:22px}.top p{margin:4px 0 0;font-size:12px;opacity:.9}
+nav{display:flex;overflow:auto;background:#fff;border-bottom:1px solid #e5e7eb;position:sticky;top:78px;z-index:19}nav a{display:block;padding:13px 15px;white-space:nowrap;color:#667085;font-weight:700;text-decoration:none}nav a.active{color:var(--blue);border-bottom:3px solid var(--blue)}
+main{max-width:820px;margin:auto;padding:14px}.page{display:none}.page.active{display:block}
+.card{background:#fff;border-radius:18px;padding:15px;margin-bottom:14px;box-shadow:0 3px 14px #1720330d}.hero{background:linear-gradient(135deg,#111827,#26364f);color:#fff}.hero h2{font-size:24px;margin:0 0 6px}.hero p{color:#d1d5db}
+h2{font-size:18px;margin:0 0 12px}h3{font-size:15px;margin:0 0 8px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}input,select,textarea{width:100%;border:1px solid #d8dee8;border-radius:11px;padding:10px;background:#fff;font:inherit}textarea{min-height:75px}
+.btn{border:0;border-radius:12px;padding:11px 14px;font-weight:800;cursor:pointer}.primary{background:var(--blue);color:#fff}.green{background:var(--green);color:#fff}.soft{background:#eef4ff;color:#0756b6}.gray{background:#eef0f3}.danger{background:#fee2e2;color:#991b1b}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.score button{width:40px;height:38px;padding:0;border-radius:9px;border:1px solid #d5dbe5;background:#fff;font-weight:800}.score button.sel{background:var(--blue);color:#fff}
+.test{border:1px solid #e6eaf0;border-radius:15px;padding:13px;margin-top:10px}.testhead{display:flex;justify-content:space-between;gap:8px;align-items:center}.tag{font-size:11px;background:#edf5ff;color:#0756b6;padding:5px 8px;border-radius:99px}.media{height:145px;border-radius:12px;background:linear-gradient(135deg,#eaf2ff,#f6f8fb);display:flex;align-items:center;justify-content:center;margin:10px 0;overflow:hidden}.media img{width:100%;height:100%;object-fit:cover}
+.steps{margin:8px 0;padding-right:20px;font-size:13px;line-height:1.8}.faults{font-size:12px;color:#667085}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.metric{background:#f7f8fa;border-radius:13px;padding:12px;text-align:center}.metric b{font-size:23px;display:block}.metric span{font-size:11px;color:var(--muted)}
+.exercise{display:grid;grid-template-columns:125px 1fr;gap:12px;align-items:center;border:1px solid #e7eaf0;border-radius:14px;padding:10px;margin-top:9px}.exercise .pic{height:105px;border-radius:10px;background:#edf4ff;display:flex;align-items:center;justify-content:center;font-size:34px}.exercise p{font-size:12px;line-height:1.65;margin:5px 0;color:#5f6b7a}
+table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:9px;border-bottom:1px solid #e9edf2;text-align:right}
+.report{border:2px solid #dfe6ef;border-radius:14px;padding:15px}.bar{height:10px;background:#e9edf3;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:var(--blue)}
+.small{font-size:11px;color:var(--muted);line-height:1.6}.hide{display:none!important}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.exercise{grid-template-columns:95px 1fr}.exercise .pic{height:90px}.top{padding-bottom:14px}}
+@media print{nav,.top,.no-print{display:none!important}.page{display:block!important}.card{box-shadow:none;border:1px solid #ddd}}
+</style>
+</head>
+<body>
+<header class="top"><h1>Movement Screening Pro</h1><p>Screen • Mobility • Corrective Exercises • Re-test</p></header>
+<nav id="mainNav">
+<a href="#home" class="active">الرئيسية</a>
+<a href="#screen">Screening</a>
+<a href="#mobility">Mobility & ROM</a>
+<a href="#exercise">Exercises</a>
+<a href="#report">Report</a>
+</nav>
+
+<main>
+<section id="home" class="page active">
+<div class="card hero"><h2>ابدأ تقييم جديد</h2><p>سجّل اللاعب، اختبر الحركة، حدّد القيود، ثم اختر التمارين وأعد الاختبار.</p><a class="btn green" href="#screen" style="display:inline-block;text-decoration:none">New Assessment</a></div>
+<div class="card"><h2>بيانات اللاعب</h2><div class="grid">
+<div><label>اسم اللاعب</label><input id="player" placeholder="مثلاً Sara Ahmed"></div>
+<div><label>التاريخ</label><input id="date" type="date"></div>
+<div><label>العمر</label><input id="age" type="number" placeholder="17"></div>
+<div><label>الرياضة / المركز</label><input id="sport" placeholder="Volleyball / OH"></div>
+</div></div>
+<div class="card"><h2>النتيجة الحالية</h2><div class="metrics"><div class="metric"><b id="sum">0/21</b><span>Total Score</span></div><div class="metric"><b id="avg">0.00</b><span>Average</span></div><div class="metric"><b id="asym">0</b><span>Asymmetry</span></div></div></div>
+</section>
+
+<section id="screen" class="page">
+<div class="card"><h2>7 Movement Screens</h2><p class="small">الدرجات هنا لتسجيل الـscreen. إذا كان هناك ألم أثناء الاختبار، أوقف الاختبار ووجّه اللاعب للتقييم المختص.</p><div id="tests"></div></div>
+</section>
+
+<section id="mobility" class="page">
+<div class="card"><h2>Mobility & ROM Tests</h2><div id="rom"></div><button class="btn soft" style="width:100%;margin-top:10px" onclick="addROM()">＋ إضافة اختبار</button></div>
+</section>
+
+<section id="exercise" class="page">
+<div class="card"><h2>Corrective Exercises</h2><p class="small">اختر التمرين حسب المنطقة التي ظهر فيها القيد، ثم سجّل الجرعة والملاحظات.</p><div id="exercises"></div></div>
+</section>
+
+<section id="report" class="page">
+<div class="card report"><h2>Player Report</h2><p><b>اللاعب:</b> <span id="rplayer">—</span></p><p><b>التاريخ:</b> <span id="rdate">—</span></p><div class="metrics"><div class="metric"><b id="rsum">0/21</b><span>Screen Score</span></div><div class="metric"><b id="rasym">0</b><span>Asymmetry</span></div><div class="metric"><b id="rrom">0</b><span>ROM Tests</span></div></div><div style="margin-top:15px"><h3>Screen Results</h3><table><thead><tr><th>Test</th><th>Score</th><th>Side / Note</th></tr></thead><tbody id="reportRows"></tbody></table></div><div style="margin-top:15px"><h3>Coach Notes</h3><textarea id="notes" placeholder="اكتب أهم الملاحظات والتوصيات..."></textarea></div></div>
+<div class="card no-print"><button class="btn primary" onclick="window.print()" style="width:100%">Print / Save PDF</button><button class="btn green" onclick="saveAssessment()" style="width:100%;margin-top:8px">Save Assessment</button></div>
+</section>
+</main>
+
+<script>
+const tests=[
+["Deep Squat","Squat","قف والقدمان بعرض الكتفين، ارفع الذراعين، ثم انزل في squat مع الحفاظ على التوازن."],
+["Hurdle Step","Step","قف خلف الحاجز، ارفع الركبة فوقه ثم المس الأرض أمامك وارجع دون فقدان التوازن."],
+["Inline Lunge","Lunge","ضع القدمين على خط واحد، انزل في lunge مع بقاء الجذع منتصباً والركبة في مسار القدم."],
+["Shoulder Mobility","Shoulder","ضع يداً من أعلى الظهر والأخرى من أسفل الظهر وحاول تقريبهما دون لف الجذع."],
+["Active Straight-Leg Raise","ASLR","استلقِ على الظهر وارفع ساقاً مستقيمة لأعلى مع بقاء الساق الأخرى ثابتة."],
+["Trunk Stability Push-Up","Stability","من وضع push-up ارفع الجسم كوحدة واحدة دون هبوط الحوض أو لف الجذع."],
+["Rotary Stability","Control","من وضع hands-and-knees مد الذراع والساق المتقابلين ثم عد مع الحفاظ على ثبات الجذع."]
+];
+const testBox=document.getElementById('tests');
+tests.forEach((t,i)=>{testBox.insertAdjacentHTML('beforeend',`
+<div class="test"><div class="testhead"><strong>${i+1}. ${t[0]}</strong><span class="tag">${t[1]}</span></div>
+<div class="media"><div style="text-align:center;font-size:42px">🏃‍♀️</div></div>
+<ol class="steps"><li>${t[2]}</li><li>راقب التعويضات، التوازن، ومدى الحركة.</li><li>إذا ظهر ألم واضح، أوقف الاختبار.</li></ol>
+<div class="faults">Scoring: 3 = حركة جيدة • 2 = تعويض بسيط • 1 = محدودية واضحة • 0 = ألم/غير قادر على الأداء</div>
+<div class="row" style="margin-top:10px"><span style="font-size:12px">الدرجة:</span><div class="score">${[0,1,2,3].map(n=>`<button onclick="setScore(${i},${n},this)">${n}</button>`).join('')}</div>
+<select id="side${i}" style="max-width:180px"><option>متساوي</option><option>يمين أفضل</option><option>يسار أفضل</option><option>فرق واضح</option></select></div></div>`);});
+
+const romDefaults=[
+["Ankle Dorsiflexion","Knee-to-wall","cm"],["Knee Flexion","ROM","°"],["Hip Flexion","ROM","°"],["Hip Internal/External Rotation","ROM","°"],["Shoulder Flexion","ROM","°"],["Shoulder External Rotation","ROM","°"],["Hamstring Flexibility","SLR","°"],["Thoracic Rotation","Mobility","°"]
+];
+const romEl=document.getElementById('rom'); let romCount=0;
+function addROM(d={}){romCount++;const id=romCount;romEl.insertAdjacentHTML('beforeend',`
+<div class="test" id="rom${id}"><div class="testhead"><strong>${d.name||'اختبار ROM جديد'}</strong><button class="btn danger" onclick="this.closest('.test').remove()">حذف</button></div>
+<div class="grid" style="margin-top:9px"><div><label>الاختبار</label><input class="rn" value="${d.name||''}" placeholder="Ankle Dorsiflexion"></div><div><label>الوحدة</label><input class="ru" value="${d.unit||'°'}"></div><div><label>يمين</label><input class="rr" value="${d.r||''}"></div><div><label>يسار</label><input class="rl" value="${d.l||''}"></div><div><label>التصنيف</label><select class="rc"><option>جيد</option><option>متوسط</option><option>محدود</option><option>ألم</option></select></div></div></div>`);}
+romDefaults.forEach(x=>addROM({name:x[0],unit:x[2]}));
+
+const ex=[
+["Ankle Mobility","تحريك الكاحل للأمام عند الحائط","قف أمام الحائط وادفع الركبة للأمام مع بقاء الكعب على الأرض. 2–3 مجموعات × 8–12 تكرار."],
+["Half-Kneeling Hip Flexor Stretch","إطالة مثنيات الحوض","من وضع نصف الجثو، شد البطن وادفع الحوض للأمام قليلاً دون تقويس أسفل الظهر. 2–3 × 20–30 ثانية."],
+["Thoracic Rotation","دوران العمود الصدري","من وضع الجثو، ضع اليد خلف الرأس وافتح الكوع لأعلى مع ثبات الحوض. 2–3 × 6–10 لكل جانب."],
+["Glute Bridge","تقوية السلسلة الخلفية","استلقِ والركبتان مثنيتان، ارفع الحوض حتى يصبح الجذع والفخذان في خط واحد. 2–3 × 10–15."],
+["Dead Bug","تحكم الجذع","ثبت أسفل الظهر، مد الذراع والساق المتقابلين ببطء ثم عد. 2–3 × 6–10 لكل جانب."],
+["Band Pull-Apart","ثبات الكتف","امسك الاستك أمامك وافتح الذراعين مع تثبيت الكتفين دون رفعهما. 2–3 × 12–15."],
+["Side Plank","ثبات الجذع الجانبي","ثبت الجسم على الساعد والقدمين مع بقاء الحوض مرتفعاً. 2–3 × 15–30 ثانية."],
+["Bird Dog","التوازن والتحكم","من الجثو مد الذراع والساق المتقابلين، ثبّت الجذع ثم عد ببطء. 2–3 × 6–10 لكل جانب."]
+];
+const exEl=document.getElementById('exercises');
+ex.forEach((e,i)=>exEl.insertAdjacentHTML('beforeend',`<div class="exercise"><div class="pic">${["🦵","🧘","🔄","🏋️","🧩","💪","🧱","🐕"][i]}</div><div><h3>${e[0]}</h3><p>${e[1]}</p><p><b>الجرعة:</b> ${e[2]}</p></div></div>`));
+
+function setScore(i,n,btn){document.querySelectorAll('.test')[i].querySelectorAll('.score button').forEach(x=>x.classList.remove('sel'));btn.classList.add('sel');btn.parentElement.dataset.score=n;update();}
+function getScores(){return [...document.querySelectorAll('#tests .test')].map((x,i)=>Number(x.querySelector('.score').dataset.score||0));}
+function update(){const sc=getScores(),sum=sc.reduce((a,b)=>a+b,0),asym=sc.reduce((a,i)=>a,0)+[0,1,2,3,4,5,6].filter(i=>document.getElementById('side'+i).value!=="متساوي").length;document.getElementById('sum').textContent=sum+'/21';document.getElementById('avg').textContent=(sum/7).toFixed(2);document.getElementById('asym').textContent=asym;buildReport();}
+function buildReport(){document.getElementById('rplayer').textContent=document.getElementById('player').value||'—';document.getElementById('rdate').textContent=document.getElementById('date').value||'—';const sc=getScores(),sum=sc.reduce((a,b)=>a+b,0);document.getElementById('rsum').textContent=sum+'/21';document.getElementById('rasym').textContent=[0,1,2,3,4,5,6].filter(i=>document.getElementById('side'+i).value!=="متساوي").length;document.getElementById('rrom').textContent=document.querySelectorAll('#rom .test').length;document.getElementById('reportRows').innerHTML=tests.map((t,i)=>`<tr><td>${t[0]}</td><td>${sc[i]}/3</td><td>${document.getElementById('side'+i).value}</td></tr>`).join('');}
+function showHash(){
+ const id=(location.hash||'#home').slice(1);
+ document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));
+ document.querySelectorAll('#mainNav a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+id));
+ buildReport();
+}
+window.addEventListener('hashchange',showHash);
+function saveAssessment(){const d={player:document.getElementById('player').value,date:document.getElementById('date').value,age:document.getElementById('age').value,sport:document.getElementById('sport').value,scores:getScores(),notes:document.getElementById('notes').value};localStorage.setItem('movementScreeningPro',JSON.stringify(d));alert('تم حفظ التقييم على الآيفون.');}
+document.getElementById('date').value=new Date().toISOString().slice(0,10);
+['player','date','age','sport'].forEach(id=>document.getElementById(id).addEventListener('input',buildReport));
+try{update();}catch(e){console.log(e)}
+showHash();
+</script>
+</body></html>
